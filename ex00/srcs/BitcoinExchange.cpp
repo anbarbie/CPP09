@@ -6,7 +6,7 @@
 /*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:12:10 by antbarbi          #+#    #+#             */
-/*   Updated: 2023/03/21 15:09:46 by antbarbi         ###   ########.fr       */
+/*   Updated: 2023/03/21 15:29:17 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,7 +202,6 @@ static bool	date_match(std::vector<std::string> &db_date, std::vector<std::strin
 
 size_t	BitcoinExchange::_find_best_date(std::string date_req)
 {
-	//function to opti setting i to the right index for the year targeted
 	std::vector<std::string> split_input_date = actual_split(date_req, "-");
 	size_t i = 1;
 	for (; i < _data_date.size(); i++)
@@ -215,7 +214,7 @@ size_t	BitcoinExchange::_find_best_date(std::string date_req)
 			return i - 1;
 		}
 	}
-	return i;
+	return i - 1;
 }
 
 double	BitcoinExchange::_exchange(size_t data_i, size_t input_i)
