@@ -6,7 +6,7 @@
 /*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:06:46 by antbarbi          #+#    #+#             */
-/*   Updated: 2023/03/21 15:09:21 by antbarbi         ###   ########.fr       */
+/*   Updated: 2023/03/21 16:08:06 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
  #include <vector>
  #include <stdlib.h>
  #include <limits>
+ #include <sys/stat.h>
+ #include <sys/types.h>
 
  #define my_int(string) (atoi(string.c_str()))
  #define my_double(string) (atof(string.c_str()))

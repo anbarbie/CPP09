@@ -6,7 +6,7 @@
 /*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:12:10 by antbarbi          #+#    #+#             */
-/*   Updated: 2023/03/21 15:29:17 by antbarbi         ###   ########.fr       */
+/*   Updated: 2023/03/21 16:10:46 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,19 @@ void	BitcoinExchange::_read_data(std::ifstream &file)
 	}
 }
 
+int is_regular_file(const char *path)
+{
+    struct stat path_stat;
+    stat(path, &path_stat);
+    return S_ISREG(path_stat.st_mode);
+}
+
 void	BitcoinExchange::_init(std::string input_file)
 {
 	std::ifstream input, data;
 	input.open(input_file.c_str()); data.open("data.csv");
+	if (!is_regular_file(input_file.c_str()))
+		throw OpenFileError();
 	if (input.bad() || data.bad())
 		throw OpenFileError();
 	_read_input(input);
