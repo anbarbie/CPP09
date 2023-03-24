@@ -6,7 +6,7 @@
 /*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:12:10 by antbarbi          #+#    #+#             */
-/*   Updated: 2023/03/21 16:10:46 by antbarbi         ###   ########.fr       */
+/*   Updated: 2023/03/24 11:35:41 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,18 +93,6 @@ void	BitcoinExchange::_init(std::string input_file)
 	input.close(), data.close();
 	if (_input_date[0] != "date" || _input_value[0] != "value")
 		throw FileFormatError();
-}
-
-void	BitcoinExchange::print_data()
-{
-	for (size_t i = 0; i < _data_date.size(); i++)
-		std::cout << _data_date[i] << " => " << _data_rate[i] << std::endl;
-}
-
-void	BitcoinExchange::print_input()
-{
-	for (size_t i = 0; i < _input_date.size(); i++)
-		std::cout << _input_date[i] << " => " << _input_value[i] << std::endl;
 }
 
 bool	Chck_date_days(std::vector<std::string> &split_date)
@@ -209,7 +197,7 @@ static bool	date_match(std::vector<std::string> &db_date, std::vector<std::strin
 	return false;
 }
 
-size_t	BitcoinExchange::_find_best_date(std::string date_req)
+size_t	BitcoinExchange::_find_best_date(std::string date_req) const
 {
 	std::vector<std::string> split_input_date = actual_split(date_req, "-");
 	size_t i = 1;
@@ -226,7 +214,7 @@ size_t	BitcoinExchange::_find_best_date(std::string date_req)
 	return i - 1;
 }
 
-double	BitcoinExchange::_exchange(size_t data_i, size_t input_i)
+double	BitcoinExchange::_exchange(size_t data_i, size_t input_i) const
 {
 	return my_double(_data_rate[data_i]) * my_double(_input_value[input_i]);
 }

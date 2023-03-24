@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/23 10:34:37 by antbarbi          #+#    #+#             */
-/*   Updated: 2023/03/24 11:23:35 by antbarbi         ###   ########.fr       */
+/*   Created: 2023/03/24 11:40:05 by antbarbi          #+#    #+#             */
+/*   Updated: 2023/03/24 11:59:49 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#include "PmergeMe.hpp"
 
-int main(int argc, char **argv)
+PmergeMe::PmergeMe(std::string str) {};
+
+PmergeMe::PmergeMe(const PmergeMe &rhs)
 {
-	if (argc != 2)
-	{
-		std::cerr << "Error : Wrong number of arguments." << std::endl;
-		return -1;
-	}
-	try
-	{
-		RPN calc(argv[1]);
-		calc.calculate();
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	return 0;
+	*this = rhs;
 }
+
+PmergeMe::~PmergeMe() {};

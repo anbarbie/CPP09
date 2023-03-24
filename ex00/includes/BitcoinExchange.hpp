@@ -6,7 +6,7 @@
 /*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:06:46 by antbarbi          #+#    #+#             */
-/*   Updated: 2023/03/21 16:08:06 by antbarbi         ###   ########.fr       */
+/*   Updated: 2023/03/24 11:35:39 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ class BitcoinExchange
 		BitcoinExchange &operator =(BitcoinExchange const &rhs);
 
 		void			trade();
-		void			print_data();
-		void			print_input();
 
 		typedef std::vector<std::string>::iterator iterator;
 
@@ -44,8 +42,8 @@ class BitcoinExchange
 		void			_init(std::string input_file);
 		void			_read_input(std::ifstream &file);
 		void			_read_data(std::ifstream &file);
-		size_t			_find_best_date(std::string date_req);
-		double			_exchange(size_t data_i, size_t input_i);
+		size_t			_find_best_date(std::string date_req) const;
+		double			_exchange(size_t data_i, size_t input_i) const;
 
 		std::vector<std::string>	_data_date;
 		std::vector<std::string>	_data_rate;

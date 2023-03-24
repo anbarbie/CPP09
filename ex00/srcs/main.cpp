@@ -6,7 +6,7 @@
 /*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:12:07 by antbarbi          #+#    #+#             */
-/*   Updated: 2023/03/21 13:50:45 by antbarbi         ###   ########.fr       */
+/*   Updated: 2023/03/24 11:25:10 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main(int argc, char **argv)
 	try
 	{
 		BitcoinExchange btc(argv[1]);
-		// btc.print_input();
 		btc.trade();
 	}
 	catch (std::exception &e)
