@@ -6,7 +6,7 @@
 /*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:32:02 by antbarbi          #+#    #+#             */
-/*   Updated: 2023/03/24 11:20:12 by antbarbi         ###   ########.fr       */
+/*   Updated: 2023/03/29 12:18:16 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,6 @@ RPN &RPN::operator = (RPN const &rhs)
 	_operand = rhs._operand;
 	_expr = rhs._expr;
 	return *this;
-}
-
-void	RPN::print() const
-{
-	std::cout << "LINE" << std::endl << _expr << std::endl;
-	std::cout << "STACK" << std::endl;
-	for (std::stack<double> tmp = _operand; !tmp.empty(); tmp.pop())
-		std::cout << tmp.top() << std::endl;
-	std::cout << std::endl;
 }
 
 void	RPN::_Chck_expr() const
@@ -75,7 +66,6 @@ void	RPN::_eval(char sign)
 	_operand.pop();
 	double first = _operand.top();
 	_operand.pop();
-	// std::cout << "EVAL: " << first << sign << second;
 	switch (sign)
 	{
 		case '+': first += second; break;
@@ -83,7 +73,6 @@ void	RPN::_eval(char sign)
 		case '*': first *= second; break;
 		case '/': first /= second; break;
 	}
-	// std::cout << "= " << first << std::endl;
 	_operand.push(first);
 }
 
