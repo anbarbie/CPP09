@@ -6,7 +6,7 @@
 /*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 11:40:05 by antbarbi          #+#    #+#             */
-/*   Updated: 2023/03/29 15:44:55 by antbarbi         ###   ########.fr       */
+/*   Updated: 2023/04/04 11:59:21 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,74 +69,7 @@ void	PmergeMe::add(std::string value)
 	_deque.push_back(num);
 }
 
-void merge(std::deque<int> &deque, int p, int q, int r) {
-  
-  // Create L ← A[p..q] and M ← A[q+1..r]
-  int n1 = q - p + 1;
-  int n2 = r - q;
 
-  int L[n1], M[n2];
-
-  for (int i = 0; i < n1; i++)
-    L[i] = list[p + i];
-  for (int j = 0; j < n2; j++)
-    M[j] = list[q + 1 + j];
-
-  // Maintain current index of sub-listays and main listay
-  int i, j, k;
-  i = 0;
-  j = 0;
-  k = p;
-
-  // Until we reach either end of either L or M, pick larger among
-  // elements L and M and place them in the correct position at A[p..r]
-  while (i < n1 && j < n2) {
-    if (L[i] <= M[j]) {
-      list[k] = L[i];
-      i++;
-    } else {
-      list[k] = M[j];
-      j++;
-    }
-    k++;
-  }
-
-  // When we run out of elements in either L or M,
-  // pick up the remaining elements and put in A[p..r]
-  while (i < n1) {
-    list[k] = L[i];
-    i++;
-    k++;
-  }
-
-  while (j < n2) {
-    list[k] = M[j];
-    j++;
-    k++;
-  }
-}
-
-// void mergeSort(std::list<int> &list, literator l, literator r)
-// {
-//   if (l < r) {
-// 	literator m = l + 
-
-//     mergeSort(list, l, m);
-//     mergeSort(list, m + 1, r);
-//     merge(list, l, m, r);
-//   }
-// }
-
-void mergeSort(std::deque<int> &deque, diterator l, diterator r)
-{
-  if (l < r) {
-	diterator m = l + (r - 1) / 2;
-
-    mergeSort(deque, l, m);
-    mergeSort(deque, m + 1, r);
-    merge(deque, l, m, r);
-  }
-}
 
 void	PmergeMe::sort()
 {

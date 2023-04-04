@@ -6,7 +6,7 @@
 /*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 11:39:21 by antbarbi          #+#    #+#             */
-/*   Updated: 2023/03/29 15:28:38 by antbarbi         ###   ########.fr       */
+/*   Updated: 2023/04/04 12:02:59 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@
 // https://www.geeksforgeeks.org/merge-sort/
 // https://www.programiz.com/dsa/merge-sort
 // https://stackoverflow.com/questions/26478139/properly-combining-merge-sort-and-insertion-sort-in-c
+
+// https://github.com/decidedlyso/merge-insertion-sort/blob/master/README.md
+// https://en.wikipedia.org/wiki/Jacobsthal_number#:~:text=The%20first%20Jacobsthal%20numbers%20are,number%20that%20is%20also%20prime.
+
+
 
 typedef	std::list<int>::iterator literator;
 typedef std::deque<int>::iterator diterator;
