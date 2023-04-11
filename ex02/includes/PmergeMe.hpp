@@ -18,6 +18,7 @@
  #include <deque>
  #include <limits>
  #include <cstdlib>
+ #include <time.h>
 // https://www.geeksforgeeks.org/merge-sort/
 // https://www.programiz.com/dsa/merge-sort
 // https://stackoverflow.com/questions/26478139/properly-combining-merge-sort-and-insertion-sort-in-c
@@ -30,6 +31,7 @@
 typedef	std::list<int>::iterator literator;
 typedef std::deque<int>::iterator diterator;
 typedef std::list< std::pair<int, int> >::iterator piterator;
+typedef std::deque< std::pair<int, int> >::iterator pditerator;
 
 class PmergeMe
 {
@@ -42,7 +44,6 @@ class PmergeMe
 		PmergeMe &operator =(const PmergeMe &rhs);
 
 		void	add(std::string value);
-		void	print() const;
 		void	sort();
 
 	private:
@@ -53,6 +54,7 @@ class PmergeMe
 
 		std::list<int>	_list;
 		std::deque<int> _deque;
+
 };
 
 class WrongArg : public std::exception

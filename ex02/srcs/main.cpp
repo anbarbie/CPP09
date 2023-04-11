@@ -24,9 +24,7 @@ int 	main(int argc, char **argv)
 	{
 		for (int i = 1; argv[i]; i++)
 			alg.add(argv[i]);
-		// alg.print();
 		alg.sort();
-		// alg.print();
 	}
 	catch (std::exception &e)
 	{
