@@ -69,12 +69,83 @@ void	PmergeMe::add(std::string value)
 	_deque.push_back(num);
 }
 
+std::list< std::pair<int, int> >	makePair(std::list<int> _list)
+{
+	std::list< std::pair<int, int> > tmp_list;
+	int	i = 0;
+	std::pair<int, int> pair;
+	
+	for (literator it = _list.begin(); it != _list.end(); it++)
+	{
+		if (i % 2 == 0 && i != 0)
+			tmp_list.push_back(pair);
+		if (i % 2 == 0)
+			pair.first = *it;
+		if (i % 2 == 1)
+			pair.second = *it;
+		i++;
+	}
+	if (i % 2 == 1)
+	{
+		pair.first = -1;
+		literator it = --_list.end();
+		pair.second = *it;
+	}
+	tmp_list.push_back(pair);
+	for (piterator it = tmp_list.begin(); it != tmp_list.end(); it++)
+	{
+		if (it->first > it->second)
+		{
+			int tmp = it->first;
+			it->first = it->second;
+			it->second = tmp;
+		}
+	}
+	return tmp_list;
+}
 
+void	Sort_A(std::list< std::pair<int, int> > &list)
+{
+	piterator it = list.begin();
+	piterator it_plus = list.begin();
+	bool reset = false;
+
+	++it_plus;
+	for (; it_plus != list.end(); it_plus++, it++)
+	{
+		if (it->first > it_plus->first)
+		{
+			while (it->first > it_plus->first &&  it_plus != list.end())
+			{
+				std::pair<int, int> tmp = *it;
+				*it = *it_plus;
+				*it_plus = tmp;
+				it++; it_plus++;
+			}
+			reset = true;
+		}
+		if (reset == true)
+		{
+			reset = false;
+			it = --list.begin();
+			it_plus = list.begin();
+		}
+	}
+}
+
+void	mergeSort(std::list<int> _list)
+{
+	std::list< std::pair<int, int> > tmp_list = makePair(_list);
+	Sort_A(tmp_list);
+	
+	for (piterator it = tmp_list.begin(); it != tmp_list.end(); it++)
+		std::cout << "["  << it->first << " ; " << it->second << "]" << " ";
+}
 
 void	PmergeMe::sort()
 {
 	if (_list.size() == 1)
 		return ;
-	// mergeSort(_list, _list.begin(), _list.end());
-	mergeSort(_deque, _deque.begin(), _deque.end());
+	mergeSort(_list);
+	// mergeSort(_deque, _deque.begin(), _deque.end());
 }

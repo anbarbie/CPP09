@@ -29,6 +29,7 @@
 
 typedef	std::list<int>::iterator literator;
 typedef std::deque<int>::iterator diterator;
+typedef std::list< std::pair<int, int> >::iterator piterator;
 
 class PmergeMe
 {
@@ -39,8 +40,6 @@ class PmergeMe
 		~PmergeMe();
 
 		PmergeMe &operator =(const PmergeMe &rhs);
-
-
 
 		void	add(std::string value);
 		void	print() const;

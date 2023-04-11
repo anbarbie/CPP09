@@ -20,13 +20,13 @@ int 	main(int argc, char **argv)
 		return -1;
 	}
 	PmergeMe alg;
-	std::cout << "HERE" << std::endl;
 	try
 	{
 		for (int i = 1; argv[i]; i++)
 			alg.add(argv[i]);
-		alg.print();
-
+		// alg.print();
+		alg.sort();
+		// alg.print();
 	}
 	catch (std::exception &e)
 	{
