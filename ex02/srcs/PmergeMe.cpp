@@ -292,9 +292,23 @@ void	PmergeMe::sort()
 	for (literator it = _list.begin(); it != _list.end(); it++)
 		std::cout << *it << " ";
 	std::cout << std::endl << "After:   ";
+
+	struct timeval startList, endList;
+	gettimeofday(&startList, NULL);
 	mergeSort(_list);
+	gettimeofday(&endList, NULL);
+	double durationList = (endList.tv_sec - startList.tv_sec) * 1000000.0 + (endList.tv_usec - startList.tv_usec);
+
+	struct timeval startDeque, endDeque;
+	gettimeofday(&startDeque, NULL);
 	mergeSort(_deque);
+	gettimeofday(&endDeque, NULL);
+	double durationDeque = (endDeque.tv_sec - startDeque.tv_sec) * 1000000.0 + (endDeque.tv_usec - startDeque.tv_usec);
+
 	for (literator it = _list.begin(); it != _list.end(); it++)
 		std::cout << *it << " ";
 	std::cout << std::endl;
+	std::cout << std::fixed << std::setprecision(6);
+	std::cout << "Time to process a range of " << _list.size() << " elements with std::list: " << durationList / 1000000.0 << " s" << std::endl;
+    std::cout << "Time to process a range of " << _deque.size() << " elements with std::deque: " << durationDeque / 1000000.0 << " s" << std::endl;
 }
